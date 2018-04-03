@@ -326,7 +326,8 @@ class OLERead
      */
     private static function getInt4d($data, $pos)
     {
-        if (trim($data) == '') {
+        // Clock files fix
+        if (trim($data) == '' && $pos!=116 && $pos!=120) {
             // No data provided
             throw new ReaderException('Parameter data is empty.');
         } elseif ($pos < 0) {
